@@ -1,18 +1,14 @@
 import React from 'react';
 import s from './Mypost.module.css'
 
-let Mypost = () => {
-    let postData = [
-        {id: 1, post:'Good'},
-        {id: 2, post:'Fine'},
-        {id: 3, post:'Bad'}
-    ]
+let Mypost = (props) => {
+    
     let PostItem = (props) =>{
         return(
         <div to={'/post/' + props.id}>{props.post}</div>
         )
     }
-    let postElement = postData.
+    let postElement = props.postData.
     map(post=><PostItem post={post.post} id={post.id}/>)
     return (   
         <div className={s.mypost}>
