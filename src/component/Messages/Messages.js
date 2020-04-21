@@ -6,8 +6,8 @@ let Messages = (props) =>{
     
     return(
         <div className={s.messages}>
-           <Names nameData={props.state.messagePage.nameData}/>
-            <Dialog dialogData={props.state.messagePage.dialogData}/>
+           <Names nameData={props.messagePage.nameData}/>
+            <Dialog dialogData={props.messagePage.dialogData}/>
 
         </div>
     )

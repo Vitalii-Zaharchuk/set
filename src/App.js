@@ -6,10 +6,10 @@ import Navbar from './component/Navbar/Navbar';
 import Profile from './component/Profile/Profile';
 import Messages from './component/Messages/Messages';
 import { Route, BrowserRouter } from 'react-router-dom';
-import state from './Redux/state';
 
 
-function App() {
+
+function App(props) {
   
   return (
     
@@ -20,10 +20,11 @@ function App() {
         
         <Navbar/>
         <Route path='/profile' render={() => <Profile
-        state={state}
+        addPost={props.addPost}
+        profilePage={props.state.profilePage}
         />} />
         <Route path='/messages' render={() => <Messages
-         state={state}
+         messagePage={props.state.messagePage}
         />} />
       </div>
     </div>
