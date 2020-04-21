@@ -11,7 +11,8 @@ let Profile = (props) =>{
             </div>
             <Aboutme/>
             <Mypost 
-            postData={props.profilePage.postData}
+            updateNewPostText={props.updateNewPostText}
+            profilePage={props.profilePage}
             addPost={props.addPost}
             />
 

@@ -6,7 +6,7 @@ let state = {
             {id: 2, post:'Fine'},
             {id: 3, post:'Bad'}
         ],
-        newPost: '123'
+        newPostText: '123'
     },
     messagePage:{
         nameData: [
@@ -23,12 +23,16 @@ let state = {
         ]
     },
 }
-export let addPost = (postMessage) =>{
+export let addPost = () =>{
     let newPost ={
         id:4,
-        post:newPost,
+        post:state.profilePage.newPostText,
     }
     state.profilePage.postData.push(newPost)
     rerenderEntireTree(state);
 };
+export let updateNewPostText = (newPostText) =>{
+    state.profilePage.newPostText = newPostText;
+    rerenderEntireTree(state);
+}
 export default state;
