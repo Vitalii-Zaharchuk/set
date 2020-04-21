@@ -1,4 +1,10 @@
-import {rerenderEntireTree} from '../render';
+
+let rerenderEntireTree = () =>{
+    console.log('sd')
+}
+export let subscribe = (observer) =>{
+    rerenderEntireTree = observer;
+}
 let state = {
     profilePage:{
         postData: [
