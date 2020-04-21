@@ -1,6 +1,16 @@
 import React from 'react';
 import s from './Dialog.module.css'
 let Dialog = (props) =>{
+    let onDialogChange= () =>{
+        let text = newDialogElement.current.value;
+        props.updateNewDialogText(text);
+    }
+    let addDialog = () =>{
+       
+        props.addDialog();
+    }
+    let newDialogElement = React.createRef();
+
     
     let DialogItem = (props) =>{
         return(
@@ -12,8 +22,8 @@ let Dialog = (props) =>{
     return(
         <div className={s.dialog}>
                {dialogElement}
-            <textarea></textarea>
-            <button>Send</button>
+            <textarea ref={newDialogElement} onChange={onDialogChange} value={props.newDialogText}></textarea>
+            <button onClick={addDialog}>Send</button>
                 
 
          </div>

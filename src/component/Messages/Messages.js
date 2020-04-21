@@ -7,7 +7,11 @@ let Messages = (props) =>{
     return(
         <div className={s.messages}>
            <Names nameData={props.messagePage.nameData}/>
-            <Dialog dialogData={props.messagePage.dialogData}/>
+            <Dialog 
+            updateNewDialogText={props.updateNewDialogText}
+            addDialog={props.addDialog}
+            newDialogText={props.messagePage.newDialogText}
+            dialogData={props.messagePage.dialogData}/>
 
         </div>
     )

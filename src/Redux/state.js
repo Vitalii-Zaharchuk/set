@@ -20,7 +20,8 @@ let state = {
             {id: 2, dialog: 'Bad'},
             {id: 3, dialog: 'Good'},
             {id: 4, dialog: 'Nice'}
-        ]
+        ],
+        newDialogText: 'Fan'
     },
 }
 export let addPost = () =>{
@@ -33,6 +34,18 @@ export let addPost = () =>{
 };
 export let updateNewPostText = (newPostText) =>{
     state.profilePage.newPostText = newPostText;
+    rerenderEntireTree(state);
+}
+export let addDialog = () =>{
+    let newDialog ={
+        id: 5,
+        dialog: state.messagePage.newDialogText,
+    }
+    state.messagePage.dialogData.push(newDialog);
+    rerenderEntireTree(state);
+};
+export let updateNewDialogText = (newDialogText) =>{
+    state.messagePage.newDialogText = newDialogText;
     rerenderEntireTree(state);
 }
 export default state;
