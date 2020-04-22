@@ -11,9 +11,10 @@ let Profile = (props) =>{
             </div>
             <Aboutme/>
             <Mypost 
-            updateNewPostText={props.updateNewPostText}
+            dispatch={props.dispatch}
+            
             profilePage={props.profilePage}
-            addPost={props.addPost}
+           
             />
 
 

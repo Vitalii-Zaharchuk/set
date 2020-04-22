@@ -20,9 +20,9 @@ function App(props) {
         
         <Navbar/>
         <Route path='/profile' render={() => <Profile
-        addPost={props.addPost}
+        dispatch={props.dispatch}
         profilePage={props.state.profilePage}
-        updateNewPostText={props.updateNewPostText}
+        
         />} />
         <Route path='/messages' render={() => <Messages
         updateNewDialogText={props.updateNewDialogText}

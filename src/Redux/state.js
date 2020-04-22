@@ -34,18 +34,7 @@ let store = {
         return this._state;
 
     },
-    addPost  ()  {
-        let newPost = {
-            id: 4,
-            post: this._state.profilePage.newPostText,
-        }
-        this._state.profilePage.postData.push(newPost)
-        this._rerenderEntireTree(this._state);
-    },
-    updateNewPostText  (newPostText)  {
-        this._state.profilePage.newPostText = newPostText;
-        this._rerenderEntireTree(this._state);
-    },
+    
     addDialog  ()  {
         let newDialog = {
             id: 5,
@@ -57,6 +46,19 @@ let store = {
     updateNewDialogText  (newDialogText)  {
         this._state.messagePage.newDialogText = newDialogText;
         this._rerenderEntireTree(this._state);
+    },
+    dispatch (action) {
+        if (action.type === 'ADD-POST'){
+            let newPost = {
+                id: 4,
+                post: this._state.profilePage.newPostText,
+            }
+            this._state.profilePage.postData.push(newPost)
+            this._rerenderEntireTree(this._state);
+        }else if (action.type === 'UPDATE-NEW-POST-TEXT'){
+            this._state.profilePage.newPostText = action.newPostText;
+            this._rerenderEntireTree(this._state);
+        }
     }
 }
 
