@@ -3,19 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {addPost, updateNewPostText, addDialog, updateNewDialogText, subscribe} from './Redux/state'
-import state from './Redux/state';
+
+import store from './Redux/state';
 
 
 export let rerenderEntireTree = (state) =>{
   ReactDOM.render(
     <React.StrictMode>
       <App 
-      updateNewDialogText={updateNewDialogText}
-      updateNewPostText={updateNewPostText}
-      addDialog={addDialog}
+      updateNewDialogText={store.updateNewDialogText.bind(store)}
+      updateNewPostText={store.updateNewPostText.bind(store)}
+      addDialog={store.addDialog.bind(store)}
       state={state}
-      addPost={addPost}
+      addPost={store.addPost.bind(store)}
       />
     </React.StrictMode>,
     document.getElementById('root')
@@ -23,8 +23,8 @@ export let rerenderEntireTree = (state) =>{
 
 }
 
-rerenderEntireTree(state);
-subscribe(rerenderEntireTree);
+rerenderEntireTree(store.getState());
+store.subscribe(rerenderEntireTree);
 
 serviceWorker.unregister();
 
