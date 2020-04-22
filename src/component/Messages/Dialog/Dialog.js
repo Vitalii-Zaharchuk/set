@@ -3,11 +3,11 @@ import s from './Dialog.module.css'
 let Dialog = (props) =>{
     let onDialogChange= () =>{
         let text = newDialogElement.current.value;
-        props.updateNewDialogText(text);
+        props.dispatch({type:'UPDATE-NEW-DIALOG-TEXT',text:text});
     }
     let addDialog = () =>{
        
-        props.addDialog();
+        props.dispatch({type:'ADD-DIALOG'});
     }
     let newDialogElement = React.createRef();
 
