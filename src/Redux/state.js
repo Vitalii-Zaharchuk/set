@@ -1,3 +1,6 @@
+import profileReducer from "./profile-reducer";
+import messageReducer from "./messages-reducer";
+
 let store = {
     rerenderEntireTree  ()  {
         console.log('sd')
@@ -36,49 +39,11 @@ let store = {
     },
     
     dispatch (action) {
-        if (action.type === 'ADD_POST'){
-            let newPost = {
-                id: 4,
-                post: this._state.profilePage.newPostText,
-            }
-            this._state.profilePage.postData.push(newPost)
-            this._rerenderEntireTree(this._state);
-        }else if (action.type === 'UPDATE_NEW_POST_TEXT'){
-            this._state.profilePage.newPostText = action.newPostText;
-            this._rerenderEntireTree(this._state);
-        }else if (action.type === 'ADD_DIALOG'){
-            let newDialog = {
-                id: 5,
-                dialog: this._state.messagePage.newDialogText,
-            }
-            this._state.messagePage.dialogData.push(newDialog);
-            this._rerenderEntireTree(this._state);
-        }else if (action.type === 'UPDATE_NEW_DIALOG_TEXT'){
-            this._state.messagePage.newDialogText = action.newDialogText;
-            this._rerenderEntireTree(this._state);
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage,action);
+        this._state.messagePage = messageReducer(this._state.messagePage,action);
     }
 }
-export let addPostActionCreator = () =>{
-    return{
-        type:'ADD_POST'
-    }
-}
-export let updateNewPostTextActionCreator = (text) =>{
-    return{
-        type:'UPDATE_NEW_POST_TEXT',newText:text
-    }
-}
-export let addDialogActionCreator = () =>{
-    return{
-        type: 'ADD_DIALOG'
-    }
-}
-export let updateNewDialogTextActionCreator = (text) =>{
-    return{
-        type: 'UPDATE_NEW_DIALOG_TEXT',
-        text:text
-    }
-}
+
+
 
 export default store;

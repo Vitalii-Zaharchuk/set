@@ -4,8 +4,9 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import store, { addPostActionCreator, updateNewPostTextActionCreator, addDialogActionCreator, updateNewDialogTextActionCreator } from './Redux/state';
-
+import store  from './Redux/state';
+import { addPostActionCreator, updateNewPostTextActionCreator} from './Redux/profile-reducer'
+import {addDialogActionCreator, updateNewDialogTextActionCreator} from './Redux/messages-reducer' 
 
 export let rerenderEntireTree = (state) =>{
   ReactDOM.render(
