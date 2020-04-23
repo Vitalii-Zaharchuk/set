@@ -22,9 +22,13 @@ function App(props) {
         <Route path='/profile' render={() => <Profile
         dispatch={props.dispatch}
         profilePage={props.state.profilePage}
+        addPostActionCreator={props.addPostActionCreator}
+        updateNewPostTextActionCreato={props.updateNewPostTextActionCreator}
         
         />} />
         <Route path='/messages' render={() => <Messages
+        addDialogActionCreator={props.addDialogActionCreator}
+        updateNewDialogTextActionCreator={props.updateNewDialogTextActionCreator}
         dispatch={props.dispatch}
          messagePage={props.state.messagePage}
         />} />

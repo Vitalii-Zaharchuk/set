@@ -1,13 +1,16 @@
 import React from 'react';
 import s from './Dialog.module.css'
 let Dialog = (props) =>{
+
+   
     let onDialogChange= () =>{
+        let action = props.updateNewDialogTextActionCreator(text)
         let text = newDialogElement.current.value;
-        props.dispatch({type:'UPDATE-NEW-DIALOG-TEXT',text:text});
+        props.dispatch(action);
     }
     let addDialog = () =>{
        
-        props.dispatch({type:'ADD-DIALOG'});
+        props.dispatch(props.addDialogActionCreator());
     }
     let newDialogElement = React.createRef();
 

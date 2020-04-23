@@ -12,6 +12,8 @@ let Profile = (props) =>{
             <Aboutme/>
             <Mypost 
             dispatch={props.dispatch}
+            addPostActionCreator={props.addPostActionCreator}
+            updateNewPostTextActionCreato={props.updateNewPostTextActionCreator}
             
             profilePage={props.profilePage}
            

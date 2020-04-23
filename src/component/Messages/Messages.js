@@ -8,6 +8,8 @@ let Messages = (props) =>{
         <div className={s.messages}>
            <Names nameData={props.messagePage.nameData}/>
             <Dialog 
+            addDialogActionCreator={props.addDialogActionCreator}
+            updateNewDialogTextActionCreator={props.updateNewDialogTextActionCreator}
             dispatch={props.dispatch}
             newDialogText={props.messagePage.newDialogText}
             dialogData={props.messagePage.dialogData}/>

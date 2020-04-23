@@ -2,24 +2,16 @@ import React from 'react';
 import s from './Mypost.module.css'
 
 let Mypost = (props) => {
-    let addPostActionCreator = () =>{
-        return{
-            type:'ADD-POST'
-        }
-    }
-    let updateNewPostTextActionCreator = (text) =>{
-        return{
-            type:'UPDATE-NEW-POST-TEXT',newText:text
-        }
-    }
+   
+   
     let onPostChange = () =>{
-        let action = updateNewPostTextActionCreator(text)
+        let action = props.updateNewPostTextActionCreator(text)
         let text = newPostElement.current.value;
         props.dispatch(action);
     }
     let addPost = () =>{
         
-        props.dispatch(addPostActionCreator());
+        props.dispatch(props.addPostActionCreator());
     }
     let newPostElement = React.createRef();
     

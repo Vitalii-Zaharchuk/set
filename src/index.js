@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import store from './Redux/state';
+import store, { addPostActionCreator, updateNewPostTextActionCreator, addDialogActionCreator, updateNewDialogTextActionCreator } from './Redux/state';
 
 
 export let rerenderEntireTree = (state) =>{
@@ -13,7 +13,10 @@ export let rerenderEntireTree = (state) =>{
       <App 
       state={state}
       dispatch={store.dispatch.bind(store)}
-      
+      addPostActionCreator={addPostActionCreator}
+      updateNewPostTextActionCreato={updateNewPostTextActionCreator}
+      addDialogActionCreator={addDialogActionCreator}
+      updateNewDialogTextActionCreator={updateNewDialogTextActionCreator}
       />
     </React.StrictMode>,
     document.getElementById('root')
