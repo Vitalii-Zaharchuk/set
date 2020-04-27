@@ -20,10 +20,8 @@ function App(props) {
         
         <Navbar/>
         <Route path='/profile' render={() => <Profile
-        dispatch={props.dispatch}
-        profilePage={props.state.profilePage}
-        addPostActionCreator={props.addPostActionCreator}
-        updateNewPostTextActionCreato={props.updateNewPostTextActionCreator}
+        store={props.store}
+        
         
         />} />
         <Route path='/messages' render={() => <Messages
